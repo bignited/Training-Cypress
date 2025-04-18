@@ -1,21 +1,6 @@
-import { Course, Locations, startTime, endTime, cypressCourse, date, Types, playwrightCourse, gatlingCourse } from "../fixtures/course"
+import { Course, Locations, startTime, endTime, cypressCourse, date, Types, playwrightCourse, gatlingCourse, jestCourse } from "../fixtures/course"
 import { validUser } from "../fixtures/user"
 import { contentShouldContainValue, overview } from "../pages/overview"
-
-const jestCourse: Course = {
-    id: 3,
-    name: 'Jest',
-    description: 'This is a beginners course for jest - \n This is created in the Training application',
-    location: Locations.Brussels,
-    teacher: 'Ty Lee',
-    date: date(),
-    timeStart: startTime(),
-    timeEnd: endTime(45),
-    image: './cypress/media/gatling.png',
-    type: Types.HandsOn,
-    contactEmail: "ty.lee@atla.be",
-    contactPhone: "+32543563453"
-}
 
 const courses = [cypressCourse, playwrightCourse, jestCourse]
 

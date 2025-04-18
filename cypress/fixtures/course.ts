@@ -78,3 +78,18 @@ export const gatlingCourse: Course = {
     contactEmail: "toph.beifong@atla.be",
     contactPhone: "+3265465645646"
 }
+
+export const jestCourse: Course = {
+    id: 3,
+    name: 'Jest',
+    description: 'This is a beginners course for jest - \n This is created in the Training application',
+    location: Locations.Brussels,
+    teacher: 'Ty Lee',
+    date: date(),
+    timeStart: startTime(),
+    timeEnd: endTime(45),
+    image: './cypress/media/gatling.png',
+    type: Types.HandsOn,
+    contactEmail: "ty.lee@atla.be",
+    contactPhone: "+32543563453"
+}
