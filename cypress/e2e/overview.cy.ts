@@ -87,7 +87,22 @@ describe('OVERVIEW PAGE | ', () => {
                 contentShouldContainValue(course, 'time', `${course.timeStart} - ${course.timeEnd}`)
             })
 
-            // contact
+            it(`Should be able to see phone of enrolled course`, () => {
+                cy.get(overview.card.course(course.name)).within(() => overview.card.content('phone')).should('be.visible')
+            })
+
+            it(`Should contain ${course.contactPhone} information of date of enrolled course`, () => {
+                contentShouldContainValue(course, 'email', course.contactPhone)
+            })
+
+            it(`Should be able to see email of enrolled course`, () => {
+                cy.get(overview.card.course(course.name)).within(() => overview.card.content('email')).should('be.visible')
+            })
+
+            it(`Should contain ${course.contactEmail} information of date of enrolled course`, () => {
+                contentShouldContainValue(course, 'email', course.contactEmail)
+            })
+
         })
     })
 })
