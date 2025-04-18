@@ -2,8 +2,8 @@ import { validUser } from "../fixtures/user"
 import { login } from "../pages/login"
 
 const longStringUser = {
-  username: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-  password: 'aaaaaaaaaaaadaabaaaaaaaaagaaaaaaaaaaaaaaaaaa',
+  username: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+  password: 'aaaaaaaaaaaadaabaaaaaaaaagaaaaaaaaaaaaaaaaa',
 }
 
 const sameStringUser = {
@@ -31,19 +31,13 @@ describe('LOGIN PAGE | ', () => {
 
   validUsers.forEach((user) => {
     it(`Should be able to login succesfully - username: ${user.username} and password: ${user.password}`, () => {
-      cy.get(login.input.username).type(user.username)
-      cy.get(login.input.password).type(user.password)
-      cy.get(login.button.login).click()
-
-
+      cy.login(user.username, user.password)
     })
   })
 
   invalidUsers.forEach((user) => {
     it(`Should not be able to login - username: ${user.username} and password: ${user.password}`, () => {
-      cy.get(login.input.username).type(user.username)
-      cy.get(login.input.password).type(user.password)
-      cy.get(login.button.login).click()
+      cy.login(user.username, user.password)
 
       cy.get(login.message.error).should('be.visible')
     })
