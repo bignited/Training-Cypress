@@ -1,4 +1,4 @@
-import { Course, Locations, startTime, endTime, cypressCourse, date, Types, playwrightCourse, gatlingCourse, jestCourse } from "../fixtures/course"
+import { cypressCourse, date, playwrightCourse, gatlingCourse, jestCourse } from "../fixtures/course"
 import { validUser } from "../fixtures/user"
 import { contentShouldContainValue, overview } from "../pages/overview"
 
