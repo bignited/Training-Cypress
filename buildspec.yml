@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm ci
+      - npx cypress verify
+  pre_build:
+    commands:
+      - echo "Pre-build phase: No actions needed"
+  build:
+    commands:
+      - npx cypress run
+artifacts:
+  files:
+    - cypress/results/**/*
+    - cypress/screenshots/**/*
+    - cypress/videos/**/*
+    - junit.xml
+    - mochawesome-report/**/*
+    - cypress.config.ts
+    - package.json
+    - tsconfig.json
+    - README.md
