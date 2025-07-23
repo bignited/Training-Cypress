@@ -13,13 +13,14 @@ phases:
   build:
     commands:
       - npx cypress run
+
 artifacts:
   files:
-    - cypress/results/**/*
-    - cypress/screenshots/**/*
-    - cypress/videos/**/*
+    - cypress/results/**/* 
+    - cypress/screenshots/**/* 
+    - cypress/videos/**/* 
     - junit.xml
-    - mochawesome-report/**/*
+    - mochawesome-report/**/* 
     - cypress.config.ts
     - package.json
     - tsconfig.json
