@@ -4,24 +4,31 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
-    commands:
-      - npm ci
-      - npx cypress verify
+  
   pre_build:
     commands:
-      - echo "Pre-build phase: No actions needed"
+      - echo Dep install started on `date`
+      - npm ci
+      - npx cypress verify
+
   build:
     commands:
-      - npx cypress run
+      - echo Build started on `date`
+      - npx cypress run --reporter junit --reporter-options "mochaFile=results.xml"
 
 artifacts:
   files:
-    - cypress/results/**/* 
-    - cypress/screenshots/**/* 
-    - cypress/videos/**/* 
-    - junit.xml
-    - mochawesome-report/**/* 
+    - cypress/results/**/*
+    - cypress/screenshots/**/*
+    - cypress/videos/**/*
     - cypress.config.ts
     - package.json
+    - package-lock.json
     - tsconfig.json
     - README.md
+
+reports:
+  test-report:
+    files:
+      - "results.xml"
+    file-format: "JUNITXML"
